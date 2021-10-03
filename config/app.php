@@ -4,6 +4,7 @@ return [
 
     /*Variáveis*/
         'material' => 'material-icons align-middle',
+        'bold' => 'font-weight-bold',
     /*Variáveis*/
 
 

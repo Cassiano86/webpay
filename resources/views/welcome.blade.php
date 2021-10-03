@@ -19,7 +19,7 @@
 
         <div class="container">
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                visão dos emails
+                visão doas urls
             </div>
         </div>
 @endsection

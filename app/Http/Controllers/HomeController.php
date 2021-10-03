@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\url;
 
-class HomeController extends Controller
-{
+class HomeController extends Controller{
     /**
      * Create a new controller instance.
      *
@@ -22,6 +22,8 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(){
-        return view('painel_administrativo');
+        return view('painel_administrativo', [
+                                                'urls' => url::where('users_id', auth()->user()->id)->orderBy('created_at','desc')->paginate(10)
+                                            ]);
     }
 }
