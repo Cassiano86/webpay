@@ -19,7 +19,7 @@ class CreateUrlsTable extends Migration
             $table->UnsignedBigInteger('quantidade_acesso')->default(0);
             $table->String('url',255);
             $table->String('status',3)->nullable();
-            $table->enum('verificado',['Sim','Não'])->nullable();
+            $table->enum('verificado',['Sim','Não'])->default('Não');
             $table->timestamps();
 
             $table->foreign('users_id')->references('id')->on('users');
