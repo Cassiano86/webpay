@@ -2,6 +2,11 @@
 
 return [
 
+    /*Variáveis*/
+        'material' => 'material-icons align-middle',
+    /*Variáveis*/
+
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
