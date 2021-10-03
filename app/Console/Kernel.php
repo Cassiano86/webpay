@@ -52,10 +52,10 @@ class Kernel extends ConsoleKernel
         require base_path('routes/console.php');
     }
 
-    protected function getStatusUrl($url){
-        $ch = curl_init('http://www.guiavalehistorico.com');
+    private function getStatusUrl(String $url){
+        $ch = curl_init($url);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
-        curl_setopt($ch,CURLOPT_TIMEOUT,10);
+        curl_setopt($ch,CURLOPT_TIMEOUT,15);
         $output = curl_exec($ch);
         $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);

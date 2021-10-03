@@ -28,7 +28,8 @@ Route::group(['middleware'              => 'auth', 'prefix'     => 'url'], funct
     Route::get('/edit/{id}',['as'       => 'url.edit','uses'    => "App\Http\Controllers\urlController@edit"]);
     Route::put('/update/{id}',['as'     => 'url.update','uses'  => "App\Http\Controllers\urlController@update"]);
     Route::delete('/destroy/{id}',['as' => 'url.destroy','uses' => "App\Http\Controllers\urlController@destroy"]);
-    Route::get('/refresh',['as'         => 'url.refresh','uses' => "App\Http\Controllers\urlController@refresh"]);
+    
+    Route::post('/refresh',['as'         => 'url.refresh','uses' => "App\Http\Controllers\urlController@refresh"]);
 });
 
 Route::fallback(function(){

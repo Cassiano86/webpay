@@ -157,6 +157,16 @@ class urlController extends Controller{
         return redirect()->route('home');
     }
 
+    public function refresh(Request $request){
+
+        return response()->json([
+                                    'success'     => 1,
+                                    'status_code' => url::where('users_id', auth()->user()->id)
+                                                     ->select('id','status')
+                                                     ->get()
+                                ]);
+    }
+
     private function ConsultarStatusCode($url){
         $ch = curl_init($url);        
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);

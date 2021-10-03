@@ -7,9 +7,9 @@ $(function(){
 		$('#modalDeletarUrl').modal('show');
 	});
 
-	/*setInterval(function(){
-		alert('Funçaõ sendo chamada')
-	},60000);*/
+	setInterval(function(){
+		refresh();
+	},60000);
 
 	function refresh(){
 		$.ajax({
@@ -20,15 +20,34 @@ $(function(){
 			timeout  : 10000,
 			success  : function(retorno){
 				if(retorno.success == 1){
-					refresh_table(retorno.status_code, retorno.status_code.length)
+					for(let x = 0; x < parseInt(retorno.status_code.length); x++){
+						let status = retorno.status_code[x].status;
+						let insert = '';
+						
+						if(status >= 200 &&  status <= 226){
+                            insert = "<span class='text-success font-weight-bold'>"+
+                                "<i class='material-icons align-middle'>check</i>"+ status +
+                            "</span>";
+                        }else if(status >= 400 &&  status <= 451){
+                            insert = "<span class='text-danger font-weight-bold'>"+
+                                "<i class='material-icons align-middle'>warning</i>"+ status +
+                            "</span>";
+                        }else if(status >= 500 &&  status <= 511){
+                            insert = "<span class='text-warning font-weight-bold'>"+
+                                "<i class='material-icons align-middle'>warning</i>"+ status +
+                            "</span>";
+                        }else{
+                        	insert = "<span class='text-warning font-weight-bold'>"+
+                                "<i class='material-icons align-middle'>error_outline</i>"+ status +
+                            "</span>";
+                        }
+
+                        $('#url_'+retorno.status_code[x].id).html(insert);
+					}
 				}else{
 					console.log(JSON.stringify(retorno));
 				}
 			}
 		});
-	}
-
-	function refresh_table(status_code, indice){
-		alert(status_code + ' ----- ' + indice);
 	}
 });

@@ -20,9 +20,11 @@
                 </thead>
                 <tbody>
                     @forelse($urls as $url)
-                        <tr>
-                            <td><small>{{$url->url}}</small></td>
+                        <tr id="linha_{{$url->id}}">
                             <td>
+                                <small>{{$url->url}}</small>
+                            </td>
+                            <td id="url_{{$url->id}}">
                                 @if($url->status == null)
                                     <span class="text-secondary {{config('app.bold')}}">
                                         <i class="{{config('app.material')}}">timer</i> Aguardando
@@ -45,18 +47,18 @@
                             <td>
                                 <div class="row mx-auto">
                                     <div class="col-lg-4">
-                                        <a href="{{ route('url.show', encrypt(auth()->user()->id)) }}" class="btn btn-success rounded {{config('app.bold')}}">
-                                            <i class="{{config('app.material')}}">description</i> Relatório
+                                        <a href="{{ route('url.show', encrypt(auth()->user()->id)) }}" class="btn btn-success rounded-pill {{config('app.bold')}}" data-toggle="tooltip" data-placement="top" title="Visualizar relatório">
+                                            <i class="{{config('app.material')}}">description</i>
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <a href="{{route('url.edit', encrypt($url->id))}}" class="btn btn-info rounded {{config('app.bold')}} text-white">
-                                            <i class="{{config('app.material')}}">autorenew</i> Atualizar
+                                        <a href="{{route('url.edit', encrypt($url->id))}}" class="btn btn-info rounded-pill {{config('app.bold')}} text-white" data-toggle="tooltip" data-placement="top" title="Atualizar url">
+                                            <i class="{{config('app.material')}}">autorenew</i>
                                         </a>
                                     </div>
                                     <div class="col-lg-4">
-                                        <button class="btn btn-danger rounded {{config('app.bold')}}" data-href="{{ route('url.destroy', encrypt($url->id)) }}">
-                                            <i class="{{config('app.material')}}">delete_forever</i> Deletar
+                                        <button class="btn btn-danger rounded-pill {{config('app.bold')}}" data-href="{{ route('url.destroy', encrypt($url->id)) }}" data-toggle="tooltip" data-placement="top" title="Deletar url">
+                                            <i class="{{config('app.material')}}">delete_forever</i>
                                         </button>
                                     </div>
                                 </div>
