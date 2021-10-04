@@ -24,17 +24,26 @@ class Kernel extends ConsoleKernel
      * @return void
      */
     protected function schedule(Schedule $schedule){
+        /*Recuperando o arquivo do log*/
+        $log = file_get_contents(public_path().'/log_acesso.txt');
+        
         // $schedule->command('inspire')->hourly();
         $schedule->call(function(){
             $items = DB::table('url')->select('id','url')->get();
 
             foreach($items as $item){
+                $status = self::getStatusUrl($item->url);
+
                 DB::table('url')
                 ->where('id', $item->id)
                 ->update([
-                            'status'     => self::getStatusUrl($item->url),
+                            'status'     => $status,
                             'verificado' => 'Sim'
                         ]);
+
+                $txt_log = "Link: ".$item->url.", Status: ".$status.", Horário: ".NOW().PHP_EOL;
+
+                file_put_contents(public_path().'/log_acesso.txt', $txt_log, FILE_APPEND);
             }
         })->everyMinute();
     }

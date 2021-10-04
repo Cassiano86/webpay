@@ -45,7 +45,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
+                            @if (Route::has('login') && Route::currentRouteName() != 'login')
                                 <li class="nav-item">
                                     <a class="btn btn-primary text-white font-weight-bold rounded nav-link mr-2" href="{{ route('login') }}">
                                         {{ __('Login') }} <i class="{{config('app.material')}}">login</i>
@@ -53,7 +53,7 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            @if (Route::has('register') && Route::currentRouteName() != 'register')
                                 <li class="nav-item">
                                     <a class="btn btn-info text-white font-weight-bold rounded nav-link" href="{{ route('register') }}">
                                         {{ __('Cadastre-se') }} <i class="{{config('app.material')}}">person</i>

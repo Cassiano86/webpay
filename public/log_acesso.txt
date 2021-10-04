@@ -1,0 +1,24 @@
+Link:https://fonts.google.com/icons?selected=Material+Icons&icon.category=action, Status: 200, Horário2021-10-04 22:59:02
+Link:https://www.youtube.com/watch?v=j08fUIPuUuU&ab_channel=RobsonV.Leite, Status: 200, Horário2021-10-04 22:59:02
+Link:https://sweetalert2.github.io/, Status: 200, Horário2021-10-04 22:59:02
+Link:https://guiavalehistorico.com/, Status: 200, Horário2021-10-04 22:59:04
+Link:https://getbootstrap.com/docs/4.4/content/typography/, Status: 200, Horário2021-10-04 22:59:04
+Link:https://getbootstrap.com/docs/4.4/getting-started/theming/#sass-options, Status: 200, Horário2021-10-04 22:59:04
+Link:https://getbootstrap.com/docs/4.4/getting-started/introduction/, Status: 200, Horário2021-10-04 22:59:04
+Link:https://getbootstrap.com/, Status: 200, Horário2021-10-04 22:59:05
+Link:https://getbootstrap.com/docs/5.1/examples/, Status: 200, Horário2021-10-04 22:59:05
+Link:https://icons.getbootstrap.com/, Status: 200, Horário2021-10-04 22:59:06
+Link:https://themes.getbootstrap.com/, Status: 200, Horário2021-10-04 22:59:07
+Link:https://blog.getbootstrap.com/, Status: 200, Horário2021-10-04 22:59:08
+Link: https://fonts.google.com/icons?selected=Material+Icons&icon.category=action, Status: 200, Horário: 2021-10-04 23:00:01
+Link: https://www.youtube.com/watch?v=j08fUIPuUuU&ab_channel=RobsonV.Leite, Status: 200, Horário: 2021-10-04 23:00:02
+Link: https://sweetalert2.github.io/, Status: 200, Horário: 2021-10-04 23:00:02
+Link: https://guiavalehistorico.com/, Status: 200, Horário: 2021-10-04 23:00:03
+Link: https://getbootstrap.com/docs/4.4/content/typography/, Status: 200, Horário: 2021-10-04 23:00:04
+Link: https://getbootstrap.com/docs/4.4/getting-started/theming/#sass-options, Status: 200, Horário: 2021-10-04 23:00:04
+Link: https://getbootstrap.com/docs/4.4/getting-started/introduction/, Status: 200, Horário: 2021-10-04 23:00:04
+Link: https://getbootstrap.com/, Status: 200, Horário: 2021-10-04 23:00:05
+Link: https://getbootstrap.com/docs/5.1/examples/, Status: 200, Horário: 2021-10-04 23:00:05
+Link: https://icons.getbootstrap.com/, Status: 200, Horário: 2021-10-04 23:00:05
+Link: https://themes.getbootstrap.com/, Status: 200, Horário: 2021-10-04 23:00:07
+Link: https://blog.getbootstrap.com/, Status: 200, Horário: 2021-10-04 23:00:07
