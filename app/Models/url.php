@@ -21,8 +21,8 @@ class url extends Model{
                                 'verificado'
                             ];
 
-    public function url(){
-        return $this->belongsToMany(User::class ,'users_id', 'id');
+    public function User(){
+        return $this->belongsTo(User::class ,'users_id', 'id');
     }
 
     public function robotVerification(){

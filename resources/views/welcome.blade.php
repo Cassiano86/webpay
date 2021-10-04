@@ -19,7 +19,36 @@
 
         <div class="container">
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                visão doas urls
+                <h2 class='text-center'>Links disponíveis</h2>
+                <div class="table-responsive mt-3">
+                    <table class="table table-hover table-bordered text-center">
+                        <thead class='thead-dark'>
+                            <th scope='col'>Links disponíveis</th>
+                            <th scope='col'>Responsável</th>
+                            <th scope='col'>Visitar</th>
+                        </thead>
+                        <tbody>
+                            @foreach($urls as $url)
+                                <tr>
+                                    <td>
+                                        {{$url->url}}
+                                    </td>
+                                    <td>{{$url->User->name}}</td>
+                                    <td>
+                                        <a id="{{encrypt($url->id)}}" class="{{config('app.bold')}}" href="{{$url->url}}" target="_blank" title='Acessar url'>
+                                            <i class="{{config('app.material')}}">language</i> Clique aqui
+                                        </a>
+                                    </td>
+                                </tr>  
+                            @endforeach                            
+                        </tbody>
+                    </table>
+                    {{$urls->onEachSide(5)->links()}}
+                </div>
             </div>
         </div>
+
+    @push('js')
+        <script src="{{asset('js/index.js')}}"></script>
+    @endpush
 @endsection
