@@ -16,7 +16,6 @@ class CreateUrlsTable extends Migration
         Schema::create('url', function (Blueprint $table) {
             $table->id();
             $table->UnsignedBigInteger('users_id');
-            $table->UnsignedBigInteger('quantidade_acesso')->default(0);
             $table->String('url',255);
             $table->String('status',3)->nullable();
             $table->enum('verificado',['Sim','Não'])->default('Não');

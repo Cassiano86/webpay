@@ -3,7 +3,10 @@
 
 @section('content')
     <div class="container px-0">
-        <div class="row my-3">
+        <div class="row mt-3 mb-1">
+            <span id='carregamento' class="text-dark {{config('app.bold')}} mt-auto d-none">
+                Atualizando <img class='ml-2' src="{{asset('img/loading.gif')}}" alt="loading" width='30' height='30' />
+            </span>
             <a href="{{route('url.create')}}" title="Adicionar uma nova url" class='btn btn-primary d-block ml-auto mr-4 p-2'>
                 <i class="{{config('app.material')}}">add</i> Adicionar url
             </a>
@@ -14,15 +17,18 @@
                     <tr>
                         <th scope="col">URL</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Acessos</th>
                         <th scope="col" colspan='3'>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($urls as $url)
                         <tr id="linha_{{$url->id}}">
-                            <td>
-                                <small>{{$url->url}}</small>
+                            <td id="link_{{$url->id}}">                                
+                                @if(($url->status >= 200 &&  $url->status <= 226))
+                                    <a href="{{$url->url}}" title='Acessar' target="_blank">{{$url->url}}</a> <span class="text-danger d-none {{config('app.bold')}}">- Desabilitado</span>
+                                @else
+                                    <a href="{{$url->url}}" class='desabilitado' title='Acessar' target="_blank">{{$url->url}}</a> <span class="text-danger {{config('app.bold')}}">- Desabilitado</span>
+                                @endif                                
                             </td>
                             <td id="url_{{$url->id}}">
                                 @if($url->status == null)
@@ -35,28 +41,26 @@
                                     </span>
                                 @elseif($url->status >= 400 &&  $url->status <= 451)
                                     <span class="text-danger {{config('app.bold')}}">
-                                        <i class="{{config('app.material')}}">warning</i> {{$url->status}}
+                                        <i class="{{config('app.material')}}">error</i> {{$url->status}}
                                     </span>
                                 @elseif($url->status >= 500 &&  $url->status <= 511)
                                     <span class="text-warning {{config('app.bold')}}">
                                         <i class="{{config('app.material')}}">warning</i> {{$url->status}}
                                     </span>
+                                @else
+                                    <span class="text-black-50 {{config('app.bold')}}">
+                                        <i class="{{config('app.material')}}">visibility_off</i> Sem resposta
+                                    </span>
                                 @endif
                             </td>
-                            <td>{{$url->quantidade_acesso}}</td>
                             <td>
                                 <div class="row mx-auto">
-                                    <div class="col-lg-4">
-                                        <a href="{{ route('url.show', encrypt(auth()->user()->id)) }}" class="btn btn-success rounded-pill {{config('app.bold')}}" data-toggle="tooltip" data-placement="top" title="Visualizar relatório">
-                                            <i class="{{config('app.material')}}">description</i>
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         <a href="{{route('url.edit', encrypt($url->id))}}" class="btn btn-info rounded-pill {{config('app.bold')}} text-white" data-toggle="tooltip" data-placement="top" title="Atualizar url">
                                             <i class="{{config('app.material')}}">autorenew</i>
                                         </a>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-6">
                                         <button class="btn btn-danger rounded-pill {{config('app.bold')}}" data-href="{{ route('url.destroy', encrypt($url->id)) }}" data-toggle="tooltip" data-placement="top" title="Deletar url">
                                             <i class="{{config('app.material')}}">delete_forever</i>
                                         </button>
@@ -68,7 +72,7 @@
                         <tr>
                             <td colspan='6'>
                                 <h4 class="text-center text-info font-weight-bold">
-                                    <i class="{{config('app.material')}}">language</i> Nenhuma url cadastrada até o momento
+                                    <i class="{{config('app.material')}}">language</i> Nenhum site cadastrado até o momento
                                 </h4>
                             </td>
                         </tr>

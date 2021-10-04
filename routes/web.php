@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/',[App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
+Route::get('/',function(){
+    return view('welcome');
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('home');
 Route::post('/store',[App\Http\Controllers\HomeController::class, 'store'])->name('store');
 
@@ -33,5 +35,5 @@ Route::group(['middleware'              => 'auth', 'prefix'     => 'url'], funct
 });
 
 Route::fallback(function(){
-    return 'Rota não encontrado';
+    return view('not_found');
 });

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\url;
-use App\Models\robotVerification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -52,15 +51,6 @@ class urlController extends Controller{
                 return redirect()->back()->withErrors($validator->errors())->withInput();
             }
         /*Validação dos dados do formulário*/
-
-        /*Verificando o status code da url*/
-           /* $status_code = self::ConsultarStatusCode($request->get('url'));
-            
-            if($status_code >= 400 && $status_code <= 451){
-                parent::flashSuccess("Sucesso", "Erro ao cadastrar nova url, status: ".$status_code, "success", false, 1500);
-                return redirect()->back();
-            }*/
-        /*Verificando o status code da url*/
 
         /*Cadastrando a nova url*/
             url::create([
@@ -135,7 +125,7 @@ class urlController extends Controller{
             url::where('id', decrypt($id))
                 ->update([                            
                             'url'       => $request->get('url'),
-                            'status'    => $status_code
+                            'status'    => null
                         ]);
         /*Atualizando a nova url, como o endereço é outro, então a contagem retorna em 0*/
 
@@ -150,7 +140,6 @@ class urlController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
-        robotVerification::where('url_id',decrypt($id))->delete();
         url::find(decrypt($id))->delete();
 
         parent::flashSuccess("Sucesso", "Url deletada com sucesso", "success", false, 1500);

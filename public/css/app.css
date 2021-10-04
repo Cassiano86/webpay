@@ -10002,3 +10002,20 @@ h3 {
     border-color: #dee2e6;
   }
 }
+
+.md-36{
+  font-size: 36px!important;
+}
+
+.md-48{
+  font-size: 48px!important;
+}
+
+.md-100{
+  font-size: 100px!important;
+}
+
+a.desabilitado{
+  pointer-events: none!important;
+  text-decoration: line-through;
+}
