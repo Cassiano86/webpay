@@ -102,6 +102,15 @@
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         });
-    </script>   
+    </script>
+    @if (session()->has('swal_msg'))
+        <script>
+            notification = @json(session()->pull("swal_msg"));
+            Swal.fire(notification.title, notification.message, notification.icon, notification.showConfirmButton, parseInt(notification.timer));
+            @php
+            session()->forget('swal_msg');
+            @endphp
+        </script>
+    @endif
 </body>
 </html>

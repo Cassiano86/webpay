@@ -86,5 +86,6 @@
     @include('url.modals.modal_deletar_url')
     @push('js')
         <script src="{{asset('js/painel_administrativo.js')}}"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @endpush
 @endsection

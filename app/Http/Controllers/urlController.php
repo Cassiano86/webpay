@@ -47,7 +47,7 @@ class urlController extends Controller{
             $validator = Validator::Make($request->all(), $regras, $feedback);
 
             if($validator->fails()){
-                parent::flashSuccess("Sucesso", "Erro ao cadastrar nova url", "success", false, 1500);
+                parent::flashSuccess("Erro", "Erro ao cadastrar nova url", "error", false, 1500);
                 return redirect()->back()->withErrors($validator->errors())->withInput();
             }
         /*Validação dos dados do formulário*/
@@ -107,19 +107,10 @@ class urlController extends Controller{
             $validator = Validator::Make($request->all(), $regras, $feedback);
 
             if($validator->fails()){
-                parent::flashSuccess("Sucesso", "Erro ao cadastrar nova url", "success", false, 1500);
+                parent::flashSuccess("Erro", "Erro ao cadastrar nova url", "error", false, 1500);
                 return redirect()->back()->withErrors($validator->errors())->withInput();
             }
         /*Validação dos dados do formulário*/
-
-        /*Verificando o status code da url*/
-            $status_code = self::ConsultarStatusCode($request->get('url'));
-            
-            if($status_code >= 400 && $status_code <= 451){
-                parent::flashSuccess("Sucesso", "Erro ao cadastrar nova url, status: ".$status_code, "success", false, 1500);
-                return redirect()->back();
-            }
-        /*Verificando o status code da url*/
 
         /*Atualizando a nova url, como o endereço é outro, então a contagem retorna em 0*/
             url::where('id', decrypt($id))
