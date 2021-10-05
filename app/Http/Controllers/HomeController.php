@@ -30,6 +30,14 @@ class HomeController extends Controller{
                                             ]);
     }
 
+    public function log(){
+        $log = public_path().'/log_acesso.txt';
+
+        $headers = ['Content-Type' => 'text/plain'];
+
+        return response()->download($log, 'log_status_http.txt', $headers);
+    }
+
     private function getStatusUrl(String $url){
         $ch = curl_init($url);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);

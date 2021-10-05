@@ -20,6 +20,7 @@ Route::get('/',function(){
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth')->name('home');
 Route::post('/store',[App\Http\Controllers\HomeController::class, 'store'])->name('store');
+Route::get('/log',[App\Http\Controllers\HomeController::class, 'log'])->name('log');
 
 
 
