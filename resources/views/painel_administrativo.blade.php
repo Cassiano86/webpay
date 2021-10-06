@@ -2,7 +2,7 @@
 @section('title_page', 'Painel administrativo')
 
 @section('content')
-    <div class="container px-0">
+    <div class="container px-2">
         <div class="row mt-3 mb-1">
             <span id='carregamento' class="text-dark {{config('app.bold')}} mt-auto d-none">
                 Atualizando <img class='ml-2' src="{{asset('img/loading.gif')}}" alt="loading" width='30' height='30' />
@@ -33,11 +33,15 @@
                             <td id="url_{{$url->id}}">
                                 @if($url->status == null)
                                     <span class="text-secondary {{config('app.bold')}}">
-                                        <i class="{{config('app.material')}}">timer</i> Aguardando
+                                        <i class="{{config('app.material')}}">watch_later</i> Aguardando
                                     </span>
                                 @elseif($url->status >= 200 &&  $url->status <= 226)
                                     <span class="text-success {{config('app.bold')}}">
                                         <i class="{{config('app.material')}}">check</i> {{$url->status}}
+                                    </span>
+                                @elseif($url->status >= 300 &&  $url->status <= 308)
+                                    <span class="text-info {{config('app.bold')}}">
+                                        <i class="{{config('app.material')}}">warning</i> {{$url->status}}
                                     </span>
                                 @elseif($url->status >= 400 &&  $url->status <= 451)
                                     <span class="text-danger {{config('app.bold')}}">

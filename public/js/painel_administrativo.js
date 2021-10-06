@@ -45,6 +45,10 @@ $(function(){
             return "<span class='text-success font-weight-bold'>"+
                 		"<i class='material-icons align-middle'>check</i>"+ status +
             		 "</span>";
+        }else if(status >= 300 &&  status <= 308){
+        	return "<span class='text-info font-weight-bold'>"+
+                		"<i class='material-icons align-middle'>warning</i>"+ status +
+            		 "</span>";
         }else if(status >= 400 &&  status <= 451){
             return "<span class='text-danger font-weight-bold'>"+
                 		"<i class='material-icons align-middle'>warning</i>"+ status +
@@ -54,8 +58,8 @@ $(function(){
                 		"<i class='material-icons align-middle'>warning</i>"+ status +
             		 "</span>";
         }else{
-        	return "<span class='text-black-50 font-weight-bold'>"+
-                		"<i class='material-icons align-middle'>error_outline</i>Sem resposta</span>";
+        	return "<span class='text-warning font-weight-bold'>"+
+                		"<i class='material-icons align-middle'>watch_later</i> Sem resposta</span>";
         }
 	}
 

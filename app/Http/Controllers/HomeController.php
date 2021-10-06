@@ -12,9 +12,8 @@ class HomeController extends Controller{
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
+    public function __construct(){
+        
     }
 
     /**
@@ -22,7 +21,8 @@ class HomeController extends Controller{
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(){        
+    public function index(){
+        $this->middleware('auth');
         $items = DB::table('url')->select('id','url')->get();
 
         return view('painel_administrativo', [
@@ -38,7 +38,16 @@ class HomeController extends Controller{
         return response()->download($log, 'log_status_http.txt', $headers);
     }
 
+    public function questionario(){
+        $log = public_path().'/questionario.txt';
+
+        $headers = ['Content-Type' => 'text/plain'];
+
+        return response()->download($log, 'questionario.txt', $headers);
+    }
+
     private function getStatusUrl(String $url){
+        $this->middleware('auth');
         $ch = curl_init($url);
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
         curl_setopt($ch,CURLOPT_TIMEOUT,10);

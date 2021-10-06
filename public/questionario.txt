@@ -1,0 +1,9 @@
+1º Qual o tempo aproximado gasto por você no desenvolvimento do software?
+Resposta: O desenvolvimento do software foi de aproximadamente 16 horas ininterruptas
+
+2º Quais as dificuldades que você enfrentou no desafio?
+Resposta: A príncipio a maior dificuldade foi entender a proposta do desafio, sendo que a proposta foi dividir o sistema em 2 partes.
+
+A primeira etapa foi simples de entender e desenvolver, pois isso é algo rotineiro no meu trabalho.
+
+A segunda etapa foi mais desafiadora no processo de implementação de um Daemon, pois eu nunca havia desenvolvido, porém essa parte me permitiu me aprofundar ainda mais no Laravel Framework, sendo que a própria ferramenta disponibiliza esse desenvolvimento. Passando isso foi apenas criar um CRON no meu CPanel e tudo ocorreu positivamente.
