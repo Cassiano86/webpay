@@ -2,6 +2,10 @@ Conclusão do desafio proposto pela empresa Wide pay.
 
 Link de acesso ao sistema: https://intercorpweb.guiavalehistorico.com/
 
+Link para o questionário: https://intercorpweb.guiavalehistorico.com/questionario
+
+Link para acesso ao Log do Daemon: https://intercorpweb.guiavalehistorico.com/log
+
 Instruções:
 
     1º Realizar o cadastro com os dados exigidos.
