@@ -1,8 +1,8 @@
 Conclusão do desafio proposto pela empresa Wide pay.
 
-Link de acesso ao sistema: https://intercorpweb.guiavalehistorico.com/ 
+Link de acesso ao sistema: https://intercorpweb.guiavalehistorico.com/
 
-Instruçoes:
+Instruções:
 
     1º Realizar o cadastro com os dados exigidos.
     
@@ -12,4 +12,15 @@ Instruçoes:
     
     4º Verificar o status code do sistema, o status inicial será 'Aguardando', até que a plataforma execute a verificação.
     
-    5º Fica a critério do usuário Editar ou Excluir as URL's cadastradas.
+    5º Fica a critério do usuário Editar ou Excluir as URL's cadastradas.    
+
+Ferramentas de desenvolvimento:
+    Front-end: Html5, CSS3 e Javascript
+    
+    Back-end: PHP
+    
+    Banco de Dados: MySQL
+    
+Bibliotecas: Jquery e SweetAlert2
+
+Framework: Laravel8 e Bootstrap4
